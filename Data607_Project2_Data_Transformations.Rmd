@@ -1,0 +1,14 @@
+---
+title: "Data_607_Project2_Data_Transformation"
+author: "Muhammad Ahmad"
+date: "2026-03-06"
+output: html_document
+---
+
+### Approach
+
+My starting position is to pick the data from the 5a discussion list. I plan to commit to the cafe sales data set, power lift data set, and renewable power plants. Once I have uploaded all the csv files for the data sets I will start with converting the wide format of each one into long starting from renewable energy mainly because I find that its data requires them most amount of time to clean. Then after the conversion will be the cleaning and tidying part making sure to fill in missing data and finding any important inconsistency. I plan to do one data set at a time to makes sure I do not start confusing myself with all of the numbers at once as I follow through steps 3.2 and 3.3. Currently its Thursday as of writing this is potentially finding the time on Friday I could do one data set a day and have it ready by Sunday for review and submission.
+
+### Challenges
+
+One main challenge I believe that will happen for me is making sure everything stays neat and orderly. Analyzing three data sets in the same assignment can get confusing and messy if I do not take cation to make sure I organize everything efficiently. Transforming the data shouldn't be too hard since I have done it before but some of the data sets I choose have a lot of rows like the renewable power plants as an example. I know I need to clean that data set to show its information better, it has a lot of zeros and information for years where there was no power plants to record information. That is the data set I need to pay the most attention to because of its vast amount of information. The other two are more manageable and should not be as difficult to clean. 
