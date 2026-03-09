@@ -12,3 +12,72 @@ My starting position is to pick the data from the 5a discussion list. I plan to 
 ### Challenges
 
 One main challenge I believe that will happen for me is making sure everything stays neat and orderly. Analyzing three data sets in the same assignment can get confusing and messy if I do not take cation to make sure I organize everything efficiently. Transforming the data shouldn't be too hard since I have done it before but some of the data sets I choose have a lot of rows like the renewable power plants as an example. I know I need to clean that data set to show its information better, it has a lot of zeros and information for years where there was no power plants to record information. That is the data set I need to pay the most attention to because of its vast amount of information. The other two are more manageable and should not be as difficult to clean. 
+
+### Transforming Renewable Energy Data
+
+```{r}
+library(dplyr)
+library(ggplot2)
+
+renewableDF <- read.csv("C:/Users/typem/Documents/GitHub/Data607_Project2_Data_Transformations/renewable_capacity_timeseries.csv")
+renewableDF
+```
+
+
+```{r}
+library(dplyr)
+library(readr)
+renewableDFClean <- read_csv('renewable_capacity_timeseries.csv') |>
+  filter(day >= as.Date('2000-01-01')) 
+
+renewableDFClean
+```
+
+```{r}
+library(tidyr)
+library(dplyr)
+
+renewableDFlong <- renewableDFClean |>
+  pivot_longer(
+    cols = -day,
+    names_to = "series",
+    values_to = "capacity"
+  )
+renewableDFlong
+```
+
+
+
+### Transforming Powerlifting data 
+
+```{r}
+liftdf <- read.csv("C:/Users/typem/Documents/GitHub/Data607_Project2_Data_Transformations/openpowerlifting.csv")
+
+liftdf
+```
+
+
+### Transforming cafe sales data
+
+```{r}
+cafedf <- read.csv("C:/Users/typem/Documents/GitHub/Data607_Project2_Data_Transformations/dirty_cafe_sales.csv")
+cafedf
+```
+
+```{r}
+library(tidyverse)
+cafe_clean <- df %>%
+  mutate(across(everything(), ~na_if(., "ERROR"))) %>%
+  mutate(across(everything(), ~na_if(., "UNKNOWN"))) %>%
+  
+  mutate(
+    Quantity = as.numeric(Quantity),
+    `Price Per Unit` = as.numeric(`Price Per Unit`),
+    `Total Spent` = as.numeric(`Total Spent`),
+    `Transaction Date` = as.Date(`Transaction Date`)
+  ) %>%
+  
+  mutate(`Total Spent` = Quantity * `Price Per Unit`) %>%
+  
+  drop_na(Item, `Transaction Date`, Quantity, `Price Per Unit`)
+```
